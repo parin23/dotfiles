@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#use this scipt lke this $ ./audio-track-remover <INPUT-FILE>
+#This will produce an output file in .mkv extension
+fin=$(echo "$1" | sed "s/Hindi-English/Hindi/g") #Use this to rename the file
+ffmpeg -v warning -i "$1" -map 0:0 -map 0:3 -c:a copy -c:v copy "out/$fin"
+echo "$1 is Complete"
+

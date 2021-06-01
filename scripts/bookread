@@ -1,0 +1,4 @@
+#!/bin/bash
+
+file=$(ls ~/Documents/Books/ | dmenu -i -l 10 -p "Select a PDF")
+[ -z "$file" ] || zathura "$HOME/Documents/Books/$file"
