@@ -1,0 +1,13 @@
+
+unmap [fullscreen] <Button3>
+unmap [fullscreen] <Button1>
+
+map [fullscreen] <Button3> scroll half-up
+map [fullscreen] <Button1> scroll half-down
+
+unmap [fullscreen] d
+map [fullscreen] d scroll half-down
+
+set continuous-hist-save true
+set window-height 1080
+set window-width 990
