@@ -1,0 +1,75 @@
+{
+  "cookies": {
+    "codeforces.com": {
+      "codeforces.com;/;39ce7": {
+        "Name": "39ce7",
+        "Value": "CFhLcbgO",
+        "Domain": "codeforces.com",
+        "Path": "/",
+        "SameSite": "",
+        "Secure": false,
+        "HttpOnly": false,
+        "Persistent": true,
+        "HostOnly": true,
+        "Expires": "2021-05-14T00:30:22.546164569+05:30",
+        "Creation": "2021-04-30T10:12:10.273950521+05:30",
+        "LastAccess": "2021-05-02T17:16:57.879937822+05:30"
+      },
+      "codeforces.com;/;JSESSIONID": {
+        "Name": "JSESSIONID",
+        "Value": "FE181D48EB3F4726E1A460355522A9D5-n1",
+        "Domain": "codeforces.com",
+        "Path": "/",
+        "SameSite": "",
+        "Secure": false,
+        "HttpOnly": true,
+        "Persistent": false,
+        "HostOnly": true,
+        "Expires": "9999-12-31T23:59:59Z",
+        "Creation": "2021-04-07T09:51:11.808827574+05:30",
+        "LastAccess": "2021-05-02T17:16:57.879937822+05:30"
+      },
+      "codeforces.com;/;X-User": {
+        "Name": "X-User",
+        "Value": "f2e332d9f22c2f6afa92e008d8dc8dad00464ac7ec297a94282ca29d29027d0d41ccc640936054dc",
+        "Domain": "codeforces.com",
+        "Path": "/",
+        "SameSite": "",
+        "Secure": false,
+        "HttpOnly": false,
+        "Persistent": true,
+        "HostOnly": true,
+        "Expires": "2021-05-07T09:51:12.246717307+05:30",
+        "Creation": "2021-04-07T09:51:12.246717307+05:30",
+        "LastAccess": "2021-05-02T17:16:57.879937822+05:30"
+      },
+      "codeforces.com;/;X-User-Sha1": {
+        "Name": "X-User-Sha1",
+        "Value": "e59cbc2439328ea4f2170e911eaadd6c03964078",
+        "Domain": "codeforces.com",
+        "Path": "/",
+        "SameSite": "",
+        "Secure": false,
+        "HttpOnly": false,
+        "Persistent": true,
+        "HostOnly": true,
+        "Expires": "2022-05-02T10:43:42.546164569+05:30",
+        "Creation": "2021-04-07T09:51:12.246717307+05:30",
+        "LastAccess": "2021-05-02T17:16:57.879937822+05:30"
+      }
+    }
+  },
+  "handle": "utha_le_re_baba",
+  "handle_or_email": "utha_le_re_baba",
+  "password": "f138d4e543a53584b87d758d4547a0fcd148ea2b4018962fd7963dc31435f96a04457d8b2702",
+  "ftaa": "llngzieyoh43e0133o",
+  "bfaa": "f1b3f18c715565b589b7823cda7448ce",
+  "last_submission": {
+    "problem_type": "contest",
+    "contest_id": "1516",
+    "group_id": "",
+    "problem_id": "B",
+    "submission_id": "114852563",
+    "RootPath": "/home/parin/code/contest"
+  }
+}
