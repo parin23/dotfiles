@@ -1,0 +1,1 @@
+cat emoji-list| dmenu -i | sed 's/\s|.*//g' | xclip -sel c

@@ -1,0 +1,41 @@
+#!/bin/sh
+program=$(cat ~/.local/bin/programs_run.list | dmenu "$@" -i -l 3 -fn 'monospace:size=12' -p "Select Program: ")
+
+if [[ "$program" == "ranger" ]]; then
+	alacritty -e ranger
+	exit 0
+fi
+echo $program
+
+if [[ "$program" == "term" ]]; then
+	prof=$(printf "Type Command to Run in Alacritty" | dmenu -l 5 -p "Enter Command: ")
+	alacritty -e zsh -c "$prof;read p"
+	exit 0
+fi
+
+if [[ "$program" == "weather" ]]; then
+	# prof=$(printf "Type Command to Run in Alacritty" | dmenu -l 5 -p "Enter Command: ")
+	alacritty -e zsh -c "curl wttr.in/Gandhinagar;stty intr 'q';read p"
+	exit 0
+fi
+
+if [[ "$program" == "firefox" ]]; then
+	prof=$(printf "Privacy Profile\nNormie Profile" | dmenu -l 5 -p "Select Profile: ")
+	echo "Inside Firefox Condition"
+	if [[ "$prof" =~ ^P. ]]; then
+		firefox -P Privacy
+	fi
+
+	if [[ "$prof" =~ ^N. ]]; then
+		firefox -P default
+	fi
+	exit 0
+fi
+
+if [[ "$program" == "Mount_DATA" ]];then
+	mount_DATA
+	notify-send "Disk Has Been Mounted Successfully" "DATA Drive" --app-name="Mount Disk"
+	exit 0
+fi
+
+exec $program

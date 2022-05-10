@@ -1,0 +1,6 @@
+#!/bin/bash
+URL=$(xclip -o)
+NAME=$(echo "Enter Image Name" | dmenu)
+DIR="/home/parin/Downloads/images/"
+
+wget "$URL" -O "$DIR/$NAME" && notify-send "Success\n Downloaded URL:\n $URL" || notify-send "Failed"

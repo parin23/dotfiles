@@ -1,0 +1,59 @@
+#!/bin/bash
+
+clear
+location="/home/$USER/.config/work-flow-tracker/data.csv"
+# ls $location
+printf "Data will be Written to CSV $location \n"
+
+printf "Start Timer?[y/n] : "
+read q
+[[ $q!="y" ]] && exit
+
+
+work () {
+	start_time=$(date +%T)
+	start_date=$(date +%F)
+	termdown
+	end_time=$(date +%T)
+	end_date=$(date +%F)
+	clear
+
+	printf "Category of Work ? [ study, intern, etc] : "
+	read category
+	printf "Record This Session ? : [y/n] :"
+	read q
+	clear
+	[[ $q == "y" ]] && notify-send "Recording to Log" && printf "$start_date,$start_time,$end_date,$end_time,$category \n" >> "$location"
+
+	printf "Start Time : $start_time \nEnd Time : $end_time\n"
+
+	printf "Enter Break Time in m : [ex 5m] : "
+	read q
+
+	termdown $q && notify-send "Break Finished" "Break is over please Return To work"
+
+}
+
+work
+printf "Return to Work ? :[y/n] "
+read q
+[[ $q != "y" ]] && exit
+
+work
+printf "Return to Work ? :[y/n] "
+read q
+[[ $q != "y" ]] && exit
+
+work
+printf "Return to Work ? :[y/n] "
+read q
+[[ $q != "y" ]] && exit
+
+work
+printf "Return to Work ? :[y/n] "
+read q
+[[ $q != "y" ]] && exit
+
+clear
+
+printf "Congratulations You completed 4 Consecutive Sessions!!\n Take A Big Break"

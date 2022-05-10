@@ -1,0 +1,43 @@
+---GENERAL---
+https://lukesmith.xyz/rss.xml
+https://forum.manjaro.org/c/announcements.rss
+
+---WEBSITES---
+#https://feeds.arstechnica.com/arstechnica/technology-lab # News in Tech
+#http://feeds.arstechnica.com/arstechnica/index/ # Blogs
+https://blog.google/rss/ "~Google Blog"
+https://blog.google/products/android/rss/
+https://www.apple.com/in/newsroom/rss-feed.rss
+https://openai.com/blog/rss/
+https://blogs.nvidia.com/rss
+https://blog.mozilla.org/en/feed/
+
+---Content---
+https://docuwiki.net/index.php?title=Special:Newpages&feed=rss
+
+---YOUTUBE---
+https://www.youtube.com/feeds/videos.xml?channel_id=UC22BdTgxefuvUivrjesETjg "yt" # History Matters
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "yt" # DT
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "yt" # Luke Smith
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA "yt" # Computerphile
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "yt" # 3Blues1Brown
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q "yt" # Kurzgesgt
+https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA "yt" # Veritasium
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "yt" # Mental Outlaw
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "yt" # LTT
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBJycsmduvYEL83R_U4JriQ "yt" # MKBHD
+
+
+---REDDIT---
+https://www.reddit.com/r/NoFap.rss
+
+
+---NEWS---
+https://timesofindia.indiatimes.com/rssfeeds/3942660.cms
+https://timesofindia.indiatimes.com/rssfeeds/-2128821153.cms
+https://timesofindia.indiatimes.com/rssfeedstopstories.cms
+
+
+# "query:Unread Articles:unread = \"yes\"" # Add Unread Option
+
+

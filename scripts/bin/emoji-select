@@ -1,0 +1,2 @@
+#!/bin/bash
+cat ~/repos/emojis/emoji-list | dmenu -i -l 10 -fn "JoyPixels:size=26" | sed 's/\s|.*//g' | xclip -sel c

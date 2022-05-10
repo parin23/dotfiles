@@ -1,0 +1,69 @@
+<snippet>
+	<content><![CDATA[
+//   ABD
+#include "bits/stdc++.h"
+using namespace std;
+void fast()
+{
+    ios::sync_with_stdio(0); cin.tie(0); cout.tie(0); 
+    #ifndef ONLINE_JUDGE 
+    freopen("input.txt","r",stdin); 
+    freopen("output.txt","w",stdout); 
+    #endif
+}
+#define int long long
+#define pb push_back
+#define fr(i,a,n) for(int i=a ; i<n ; i++)
+#define rf(i,n,a) for(int i=n-1 ; i>=a ; i--)
+#define ff first
+#define ss second
+#define all(c) (c).begin(),(c).end()
+#define sz(v) (int)(v).size()
+#define setpre(x,d) fixed<<setprecision(d)<<x
+#define mem(a,x) memset(a,x,sizeof(a));
+#define pq_max priority_queue<int>
+#define pq_min priority_queue<int, vector<int>, greater<int>>
+#define NN              (const int)5e5+10
+typedef long long ll;
+typedef long double lld;
+typedef pair<int, int> pii;
+typedef vector<long long> vll;
+typedef vector<int> vi;
+const int inf = 1e9;
+const int inf64 = 1e18;
+const int MOD = inf + 7;
+//bool sortbysec(const pair<int,int> &a,const pair<int,int> &b) { return (a.second < b.second); }
+ll powe(ll a,ll b,ll mod=MOD) 
+{    
+    ll res=1; 
+    while(b>0){ if(b&1) res=(res*a)%mod; a=(a*a)%mod; b>>=1; }  
+    return res; 
+}
+ 
+ 
+ 
+ 
+void solve()
+{
+
+}
+ 
+ 
+int32_t main()
+{
+    fast();
+    ll tt=1;
+    cin>>tt;
+ 
+    while(tt--)
+    {
+        solve();
+    }
+    return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>include</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	 <scope>source.c++</scope>
+</snippet>

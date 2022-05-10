@@ -1,0 +1,2 @@
+#!/bin/bash
+alacritty -o font.size=8 window.startup_mode=Maximized window.startup_mode=Maximized window.startup_mode=Maximized -e ncmpcpp

@@ -1,0 +1,30 @@
+<snippet>
+	<content><![CDATA[
+void EE(ll a,ll b,ll &x,ll &y)
+{ 
+    if(b==0) 
+    {  
+        x=1; y=0;
+        return ;
+    }   
+    EE(b,a%b,x,y);  
+    ll temp=x; 
+    x=y; 
+    y=temp-(a/b)*y; 
+}
+
+ll inverse(ll a,ll mod)
+{
+    ll x,y;
+    EE(a,mod,x,y);
+    return (x+mod)%mod;
+}
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>inverse</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

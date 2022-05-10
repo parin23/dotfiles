@@ -1,0 +1,38 @@
+<snippet>
+	<content><![CDATA[
+vector<ll> KMP(string s)    // pref till that index (ex. abcabc = 000123)
+{
+    ll n=s.length();
+    vector<ll> pi(n);
+    for(ll i=1;i<n;i++)
+    {
+        ll j=pi[i-1];
+        while(j>0 && s[i] != s[j])  j = pi[j-1];
+        if (s[i] == s[j])   j++;
+        pi[i]=j;
+    }
+    return pi;
+}
+
+
+vector<ll> z_function(string s) // pref start from that index (ex. abcabc = 000300) 
+{
+    ll n=s.length();
+    vector<ll> z(n);
+    for(ll i=1,l=0,r=0; i<n; i++)
+    {
+        if(i<=r)    z[i] = min(r - i + 1, z[i-l]);
+        while (i + z[i] < n && s[z[i]] == s[i + z[i]])  z[i]++;
+        if (i+z[i]-1 > r)   l=i, r=i+z[i]-1;
+    }
+    return z;
+}
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>string_matching</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

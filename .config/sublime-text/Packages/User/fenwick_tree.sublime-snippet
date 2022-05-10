@@ -1,0 +1,49 @@
+<snippet>
+	<content><![CDATA[
+// 1-indexed
+class fenwick
+{
+    public :
+    ll nn;
+    vector<ll> bit;
+    fenwick(){}
+    fenwick(ll _n)
+    { 
+        nn=_n;
+        bit.resize(nn+1,0);
+    }
+ 
+    void update(ll id,ll val)
+    {
+        while(id<=nn)
+        {
+            bit[id] += val; // bit[id]=max(bit[id], val); for max
+            id+= id & -id;
+        }
+    }
+
+    ll pref(ll id)
+    {
+        ll ans=0;
+        while(id>0)
+        {
+            ans+=bit[id];   // ans=max(ans,bit[id]); for max
+            id-= id & -id;
+        }
+        return ans;
+    }
+ 
+    ll query(ll l,ll r) // for max l=1; [l,r]
+    {
+        return pref(r) - pref(l-1);
+    }
+};
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fenwick_tree</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

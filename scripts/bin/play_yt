@@ -1,0 +1,2 @@
+#!/bin/bash
+xclip -o | xargs -I _ mpv --ytdl-format="bestaudio" "_" || notify-send "Invalid Youtube Link\nPlease Try Again"

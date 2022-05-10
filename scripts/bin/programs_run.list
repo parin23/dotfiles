@@ -1,0 +1,20 @@
+caa-auto
+calender
+emoji-select
+firefox
+image_download
+joplin
+mail_mutt
+mbsync -a # Sync mail
+mount_DATA
+mpc_volume
+music_player
+passmenu -i -l 10
+play_yt
+ranger
+reminder_script
+rss-read # Newsboat
+term
+timetable
+weather
+xdg-open Documents/FINAL450.xlsx

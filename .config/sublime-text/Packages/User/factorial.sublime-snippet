@@ -1,0 +1,46 @@
+<snippet>
+	<content><![CDATA[
+const ll N=1e6+100;
+ll fact[N];
+ll ifact[N];
+
+void build_fact()
+{
+    fact[0]=1;
+    for(ll i=1;i<N;i++)   fact[i]=(fact[i-1]*i)%MOD;
+    
+    ifact[N-1]=powe(fact[N-1],MOD-2);
+    for(ll i=N-2;i>=0;i--) ifact[i]=(ifact[i+1]*(i+1))%MOD;
+}
+ 
+ll ncr(ll n,ll r)
+{
+    if(r>n) return 0;
+    if(n<0 || r<0) return 0;   
+    
+    ll res=fact[n];
+    res=(res*ifact[r])%MOD;
+    res=(res*ifact[n-r])%MOD;
+    
+    return res;
+}
+
+ll npr(ll n,ll r)
+{
+    if(r>n) return 0;
+    if(n<0 || r<0) return 0;
+    
+    ll res=fact[n];
+    res=(res*ifact[n-r])%MOD;
+    
+    return res;
+}
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>factorial</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

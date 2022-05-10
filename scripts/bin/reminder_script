@@ -1,0 +1,14 @@
+#!/bin/bash
+# Script to use dmenu for setiing reminders
+
+timeval=$(printf "Enter Time (hh:mm / 11pm 12 feb)" | dmenu -l 10 -p "Time : ")
+notify-send "Enter Description" "Pls enter Description of Reminder"
+desc=$(echo '' | dmenu -fn "JoyPixels:size=20" -p "Description")
+
+state=$(systemctl is-active atd.service)
+
+[ $state == "inactive" ] && systemctl start atd.service
+
+echo "notify-send $desc " | at $timeval
+
+notify-send "Success" "Succesfully set the reminder"

@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+// 1-indexed string needed
+struct Hashs
+{
+    vector<ll> hash;
+    vector<ll> pows;
+    ll P;
+    ll mod;
+
+    Hashs() {}
+
+    Hashs(string &s,ll P,ll M) : P(P), mod(M)
+    {
+        ll n=s.size();
+        pows.resize(n+1, 0);
+        hash.resize(n+1, 0);
+        pows[0] = 1;
+        for(ll i=1;i<=n;i++)
+        {
+            pows[i]=(pows[i-1]*P)%mod;
+            hash[i]=(hash[i-1]*P+(s[i-1]-'a'+1))%mod;
+        }
+    }
+
+    ll get_hash(ll l,ll r)  // [l,r]
+    {
+        return ( hash[r] - (hash[l-1]*pows[r-l+1])%mod + mod ) % mod;
+    }
+};
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>hashing</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

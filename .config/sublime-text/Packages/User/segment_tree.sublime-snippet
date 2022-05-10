@@ -1,0 +1,112 @@
+<snippet>
+	<content><![CDATA[
+// 1-indexed; update 2 points; pass size and vector at initialization time
+template<typename T>
+class segment
+{
+    public:
+        ll nn;
+        vector<T> st;
+        vector<bool> isleft;
+        vector<ll> lazy;
+        vector<ll> aa;
+ 
+        segment() {}
+ 
+        segment(ll _n,vector<ll> &_a)
+        {
+            nn=_n;
+            st.resize(4*nn+10);
+            isleft.resize(4*nn+10,0);
+            lazy.resize(4*nn+10,0);
+            aa=_a;
+        }
+ 
+        inline T merge(T &a,T &b)
+        {
+            T res=(a,b); // update-1
+            return res;
+        }
+ 
+        void propagate(ll si,ll l,ll r)
+        {
+            if(l!=r)
+            {
+                isleft[2*si]=1;
+                isleft[2*si+1]=1;
+                lazy[2*si]+=lazy[si];
+                lazy[2*si+1]+=lazy[si];
+            }
+            st[si]+=lazy[si];
+            lazy[si]=0;
+            isleft[si]=0;
+        }
+ 
+        void create(ll si,ll l,ll r)
+        {
+            if(l==r)
+            {
+                st[si]=aa[l];
+                return ;
+            }
+            ll mid=(l+r)>>1;
+            create(2*si,l,mid);
+            create(2*si+1,mid+1,r);
+            st[si]=merge(st[2*si],st[2*si+1]);
+        }
+        
+        // point update ql=qr 
+        void update(ll si,ll l,ll r,ll ql,ll qr,ll val)   // start, first id, last id, range l, range r, val
+        {
+            if(isleft[si])
+            {
+                propagate(si,l,r);
+            }
+            if(ql>r || qr<l || l>r)
+            {
+                return ;
+            }
+            if(ql<=l && qr>=r)
+            {
+                assert(isleft[si]==0 && lazy[si]==0);
+                isleft[si]=1;
+                lazy[si]+=val;
+                propagate(si,l,r);
+                return ;
+            }
+            ll mid=(l+r)>>1;
+            update(2*si,l,mid,ql,qr,val);
+            update(2*si+1,mid+1,r,ql,qr,val);
+            st[si]=merge(st[2*si],st[2*si+1]);
+        }
+ 
+        T query(ll si,ll l,ll r,ll ql,ll qr)   // start, first id, last id, range l, range r
+        {
+            if(isleft[si])
+            {
+                propagate(si,l,r);
+            }
+            if(ql>r or qr<l or l>r)
+            {
+                return 1e18;    // update-2
+            }
+            if(ql<=l and qr>=r)
+            {
+                return st[si];
+            }
+            ll mid=(l+r)>>1;
+            T ansl=query(2*si,l,mid,ql,qr);
+            T ansr=query(2*si+1,mid+1,r,ql,qr);
+            T ans=merge(ansl,ansr);
+            return ans;
+        }
+};
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>segment_tree</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

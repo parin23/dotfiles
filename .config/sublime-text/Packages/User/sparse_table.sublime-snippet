@@ -1,0 +1,51 @@
+<snippet>
+	<content><![CDATA[
+// array/vector(1-indexed) declared globally with name & size = a & n     
+const ll N=1e6+5;
+const ll LG=20;
+
+ll sparse[N][LG];
+
+inline ll func(ll x,ll y)  // write function here
+{
+    return __gcd(x,y);
+}
+
+void build_sparse()
+{
+    for(ll i=1;i<=n;i++)    sparse[i][0]=a[i];
+    for(ll j=1;(1<<j)<=n;j++)
+    {
+        for(ll i=1;(i + (1<<j) - 1)<=n;i++)
+        sparse[i][j]=func(sparse[i][j-1], sparse[i + (1<<(j-1))][j-1]);
+    }
+} 
+ 
+ll query(ll L,ll R)
+{
+    ll j=log2(R-L+1);
+    return func(sparse[L][j], sparse[R - (1<<j) + 1][j]);
+}
+
+// start - current index;  lo & hi - In-range that wanted to search; shouldbe - value for search
+ll binsearch(ll start,ll lo,ll hi,ll shouldbe)  // returns min index that has same property as start
+{
+    while(lo<hi)
+    {
+        ll mid=(lo+hi+1)>>1;
+        if(query(start, mid)==shouldbe) // write accordingly
+            lo=mid;
+        else
+            hi=mid-1;
+    }
+    return lo;
+}
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>spase_table</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

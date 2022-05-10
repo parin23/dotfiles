@@ -1,0 +1,61 @@
+<snippet>
+	<content><![CDATA[
+const ll N=1e6+100;
+bool isp[N+1]={0};
+ll divsr[N+1]={0};
+vector<ll> pr;
+
+/*
+    isp for 1e6<num<=1e8 use build_isp (hide build_primes)
+    isp for num>1e8 (cp->algebra->Primality tests->Miller Rabin last code)
+*/
+// void build_isp()    // works for N=1e8 in 0.7s; For in-range primes (cp->algebra->SoE last code)
+// {
+//     fill(isp,1);
+//     isp[0]=isp[1]=0;
+//     for(ll i=2;i*i<=N;i++)
+//     {
+//         if(isp[i])
+//         {
+//             for(ll j=i*i;j<=N;j+=i)
+//             isp[j]=0;
+//         }
+//     }
+// }
+
+void build_primes() // 79000 primes for N=1e6 in O(N)
+{
+    divsr[1]=1;
+    for(ll i=2;i<=N;i++)
+    {
+        if(divsr[i]==0)
+        {
+            divsr[i]=i;
+            isp[i]=1;
+            pr.push_back(i);
+        }
+        for (int j=0;j<sz(pr) && pr[j]<=divsr[i] && i*pr[j]<=N;j++)
+        divsr[i*pr[j]]=pr[j];
+    }
+}
+
+vector<ll> get_factors(ll n)
+{
+    vector<ll> factors;
+    if(n==0) return factors;
+    while(n!=1)
+    {
+        factors.pb(divsr[n]);
+        n/=divsr[n];
+    }
+    return factors;
+}
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>primes</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
