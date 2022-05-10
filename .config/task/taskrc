@@ -44,5 +44,5 @@ taskd.server=freecinc.com:53589
 taskd.key=\/home\/parin\/.task\/freecinc_64204b64.key.pem
 taskd.certificate=\/home\/parin\/.task\/freecinc_64204b64.cert.pem
 taskd.ca=\/home\/parin\/.task\/freecinc_64204b64.ca.pem
-taskd.credentials=FreeCinc\/freecinc_64204b64\/bd43151e-008d-402c-b16f-954ef95cece5
+# taskd.credentials=FreeCinc\/freecinc_64204b64\/bdasdsad=asd-asdads-d
 news.version=2.6.0
