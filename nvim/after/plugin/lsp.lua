@@ -6,13 +6,7 @@ end)
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig').clangd.setup{}
 
 lsp.setup()
 
-local cmp = require('cmp')
-
-cmp.setup({
-    mapping = {
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    }
-})
