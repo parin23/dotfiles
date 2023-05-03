@@ -43,4 +43,5 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+    use { 'hrsh7th/cmp-path', config = function() require('cmp').setup { sources = { { name = 'path' } } } end }
 end)
