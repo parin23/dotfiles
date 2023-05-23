@@ -1,0 +1,84 @@
+#!/bin/python3
+
+import os
+import shutil
+from termcolor import colored
+from collections import defaultdict
+
+# Folder Names
+ARCHIVE = 'Archive'
+VIDEOS = 'Videos'
+IMAGES = 'Images'
+SCRIPTS = 'Scripts'
+DOCUMENTS = "Documents"
+AUDIO = 'Audio'
+OTHERS = 'Others'
+
+
+extension_folder_mapping = defaultdict(str)
+
+
+def add_mapping(dict, key, value):
+    dict[key] = value
+
+
+def create_mapping():
+    add_mapping(extension_folder_mapping, 'pdf', DOCUMENTS)
+    add_mapping(extension_folder_mapping, 'html', DOCUMENTS)
+    add_mapping(extension_folder_mapping, 'txt', DOCUMENTS)
+
+    add_mapping(extension_folder_mapping, 'deb', ARCHIVE)
+    add_mapping(extension_folder_mapping, 'tar', ARCHIVE)
+    add_mapping(extension_folder_mapping, 'xz', ARCHIVE)
+    add_mapping(extension_folder_mapping, 'gz', ARCHIVE)
+    add_mapping(extension_folder_mapping, 'zip', ARCHIVE)
+    add_mapping(extension_folder_mapping, 'rar', ARCHIVE)
+
+    add_mapping(extension_folder_mapping, 'jpeg', IMAGES)
+    add_mapping(extension_folder_mapping, 'jpg', IMAGES)
+    add_mapping(extension_folder_mapping, 'png', IMAGES)
+    add_mapping(extension_folder_mapping, 'webp', IMAGES)
+    add_mapping(extension_folder_mapping, 'bmp', IMAGES)
+
+    add_mapping(extension_folder_mapping, 'mp4', VIDEOS)
+    add_mapping(extension_folder_mapping, 'avi', VIDEOS)
+    add_mapping(extension_folder_mapping, 'mkv', VIDEOS)
+    add_mapping(extension_folder_mapping, 'webm', VIDEOS)
+    add_mapping(extension_folder_mapping, 'mov', VIDEOS)
+
+    add_mapping(extension_folder_mapping, 'torrent', OTHERS)
+
+
+def create_directory(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+
+def organize_files():
+    for file in os.listdir('.'):
+
+        # continue if not a file or the file is script itself
+        if not (os.path.isfile(file) and file != os.path.basename(__file__)):
+            continue
+
+        extension = os.path.splitext(file)[1][1:].lower()
+        category = extension_folder_mapping[extension]
+
+        if not category:
+            print(
+                colored(f"No Category Defined for:{extension}", 'red'), end='\n')
+            continue
+
+        create_directory(category)
+        shutil.move(file, os.path.join(category, file))
+        print(
+            colored(f"Moved {file} to {os.path.join(category, file)}", 'green'), end='\n')
+
+
+user_input = input(
+    f"Are you sure? This could mess up your files. Directory: {os.getcwd()} :[yes/no]: ")
+if user_input == "yes":
+    create_mapping()
+    organize_files()
+else:
+    print("Exiting without any operations")
