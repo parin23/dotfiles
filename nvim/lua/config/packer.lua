@@ -10,7 +10,8 @@ return require('packer').startup(function(use)
     -- Post-install/update hook with neovim command
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    use({ 'rose-pine/neovim', as = 'rose-pine', config = function() vim.cmd('colorscheme rose-pine') end })
+    -- use({ 'rose-pine/neovim', as = 'rose-pine', config = function() vim.cmd('colorscheme rose-pine') end })
+    use { 'folke/tokyonight.nvim', config = function() vim.cmd('colorscheme tokyonight') end }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -43,5 +44,21 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
---    use { 'hrsh7th/cmp-path'}
+    use { "nvim-tree/nvim-tree.lua" }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        opts = {
+            options = {
+                icons_enabled = false,
+                theme = 'onedark',
+                component_separators = '|',
+                section_separators = '',
+            },
+        },
+
+    }
+    use "lukas-reineke/indent-blankline.nvim"
+    use "nvim-tree/nvim-web-devicons"
+    --    use { 'hrsh7th/cmp-path'}
 end)
