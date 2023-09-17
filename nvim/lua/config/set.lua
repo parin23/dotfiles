@@ -1,9 +1,9 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = "a:blinkon10"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -21,6 +21,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 
 -- vim.cmd("autocmd TextChanged,TextChangedI <buffer> silent write")

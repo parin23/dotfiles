@@ -60,5 +60,5 @@ return require('packer').startup(function(use)
     }
     use "lukas-reineke/indent-blankline.nvim"
     use "nvim-tree/nvim-web-devicons"
-    --    use { 'hrsh7th/cmp-path'}
+    use "mfussenegger/nvim-dap"
 end)
