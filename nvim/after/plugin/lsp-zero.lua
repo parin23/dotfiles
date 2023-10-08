@@ -14,10 +14,17 @@ lsp.setup()
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.shortmess:append "c"
+
 cmp.setup({
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
+    },
+    preselect = 'item',
+    completion = {
+        keyword_length = 3
     },
     mapping = {
         -- `Enter` key to confirm completion

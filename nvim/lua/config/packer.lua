@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
     -- use({ 'rose-pine/neovim', as = 'rose-pine', config = function() vim.cmd('colorscheme rose-pine') end })
-    use { 'folke/tokyonight.nvim', config = function() vim.cmd('colorscheme tokyonight') end }
+    use { 'folke/tokyonight.nvim', config = function() vim.cmd('colorscheme tokyonight-day') end }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
             -- Autocompletion
             { 'hrsh7th/nvim-cmp' }, -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip',                 version = "2.*", build = "make install_jsregexp" }, -- Required
         }
     }
 
@@ -60,5 +60,17 @@ return require('packer').startup(function(use)
     }
     use "lukas-reineke/indent-blankline.nvim"
     use "nvim-tree/nvim-web-devicons"
+
+    -- DAP / Debug Related
     use "mfussenegger/nvim-dap"
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+    use "mfussenegger/nvim-dap-python"
+
+    -- Firefox support for neovim
+    use {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end
+    }
+
+    use 'numToStr/Comment.nvim'
 end)
